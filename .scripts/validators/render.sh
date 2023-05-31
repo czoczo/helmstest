@@ -10,6 +10,6 @@ while read -d $'\0' CHART_FILE; do
   CHART_DIR="$(dirname "${CHART_FILE}")"
   helm lint "$CHART_DIR" || EXIT_CODE=1
 
-done < <(find . -name 'Chart.yaml' -print0)
+done < <(find charts -name 'Chart.yaml' -print0)
 
 exit $EXIT_CODE

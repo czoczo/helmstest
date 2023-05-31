@@ -16,19 +16,3 @@ jobs:
 
       - name: Run Validator Script
         run: ./.scripts/validators/render.sh
-
-      - name: Check Script Exit Status
-        run: exit ${{ steps.validate.outcome == 'success' }}
-
-      - name: Set Pull Request Status
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: |
-            :heavy_check_mark: Pull Request Validator passed.
-
-      - name: Prevent Merge on Failure
-        if: ${{ steps.validate.outcome != 'success' }}
-        run: |
-          echo "Error: Pull Request Validator failed. Please fix the issues and try again."
-          exit 1
-

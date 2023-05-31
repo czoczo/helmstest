@@ -28,5 +28,7 @@ jobs:
 
       - name: Prevent Merge on Failure
         if: ${{ steps.validate.outcome != 'success' }}
-        run: echo "Error: Pull Request Validator failed. Please fix the issues and try again." && exit 1
+        run: |
+          echo "Error: Pull Request Validator failed. Please fix the issues and try again."
+          exit 1
 

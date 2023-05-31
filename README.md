@@ -1,4 +1,4 @@
-el# LX Helm Charts
+# LX Helm Charts
 
 ## Przeznaczenie
 Repozytorium zawierające kody źródłowe Helm Chartów wytwarzanych dla aplikacji przez domeny.  

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: jakas_apka
+name: jakas-apka
 description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.

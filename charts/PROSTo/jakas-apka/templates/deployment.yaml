@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "jakas_apka.fullname" . }}
+  name: {{ include "jakas-apka.fullname" . }}
   labels:
-    {{- include "jakas_apka.labels" . | nindent 4 }}
+    {{- include "jakas-apka.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{- include "jakas_apka.selectorLabels" . | nindent 6 }}
+      {{- include "jakas-apka.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{- include "jakas_apka.selectorLabels" . | nindent 8 }}
+        {{- include "jakas-apka.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
     {{- end }}
-      serviceAccountName: {{ include "jakas_apka.serviceAccountName" . }}
+      serviceAccountName: {{ include "jakas-apka.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
